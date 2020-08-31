@@ -96,8 +96,8 @@
         }
     }
 
-    $username = ( isset($_GET['username']) ? $_GET['username'] : (isset($argv[1])?$argv[1]:'');
-    $password = ( isset($_GET['password']) ? $_GET['password'] : (isset($argv[2])?$argv[2]:''))
+    $username = ( isset($_GET['username']) ? $_GET['username'] : (isset($argv[1])?$argv[1]:''));
+    $password = ( isset($_GET['password']) ? $_GET['password'] : (isset($argv[2])?$argv[2]:''));
 
     /* 在这里修改健康上报数据 */
     $reporter = new AutoReport($username, $password, array(

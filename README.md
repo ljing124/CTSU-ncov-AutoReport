@@ -52,12 +52,19 @@ yourhost/report.php?username=USERNAME&password=PASSWORD
 
 建议参照健康打卡平台相关设置项:[打卡平台](https://weixine.ustc.edu.cn/2020/home)
 1. now_address: 当前所在地 ( 内地:1, 香港:2, 澳门:4, 台湾:5, 国外:3 )
+
 2. now_province: 当前省份 ( 行政区域代码 安徽省为340000 )
+   
 3. now_city: 当前城市 ( 行政区域代码 合肥市为340100 )
+   
 4. is_inschool: 是否在校 ( 东区:2, 南区:3, 中区:4, 北区:5, 西区:6, 校外:0 )
+   
 5. body_condition: 身体状况 ( 正常:1, 疑似:2, 确诊:3, 其他:4 )
+   
 6. now_status: 当前状态 ( 正常在校:1, 正常在家:2, 居家留观:3, 集中留观:4, 住院治疗:5, 其他:6 )
+   
 7. has_fever: 发热症状 ( 无:0, 有:1 )
+   
 8. last_touch_sars: 接触确诊或疑似病例 ( 无:0, 有:1 )
 
 
@@ -66,7 +73,8 @@ yourhost/report.php?username=USERNAME&password=PASSWORD
 
 其他开发者的一个基于python3的打卡脚本[URC-ncov-AutoReport](https://github.com/Violin9906/URC-ncov-AutoReport.git)
    
-## TODU LIST
+## TODO LIST
 
 1. 自建PHP环境运行的邮件提醒
+
 2. 打卡失败时进行重试

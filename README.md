@@ -13,10 +13,12 @@
 ### 通过自建PHP运行环境
 
 0. 搭建PHP运行环境，PHP版本＞7.3，无需MYSQL，也可以使用docker部署。(打卡脚本资源占用较少，可以在openwrt、群晖等轻量环境下运行)
+
 1. 将本仓库clone到本地并上传至你的PHP运行环境。也可以仅上传report.php文件，通过composer安装依赖。
 ```
 composer require fabpot/goutte
 ```
+
 2. 通过计划任务工具定时访问report.php页面，linux环境下使用corntab，win环境下使用任务计划程序，也可以使用第三方云监控定时访问URI。
 ```
 yourhost/report.php?username=USERNAME&password=PASSWORD
@@ -25,16 +27,24 @@ yourhost/report.php?username=USERNAME&password=PASSWORD
 ### 通过Github Action
 
 1. 将本仓库fork到自己的github。
+   
 2. 修改report.php文件中的健康上报数据为自己的数据。默认数据为东区正常在校。
-3. 修改.github/workflows/php.yml文件中第7行的schedule为自己需要打卡的时间。
+![](imgs/img-data.png)
+   
+3. 修改.github/workflows/php.yml文件中第7行的schedule为自己需要打卡的时间。如果您不知道如何设置时间，可以先了解cron表达式。
+   
 4. 选择Settings选项卡点选左侧secret，创建名为USERNAME和PASSWORD的secret，值分别为自己统一身份认证的账号(学号)和密码。
+![](imgs/img-secrets.png)
+
 5. 选择Actions选项卡启用自己仓库的Action。
+   
 6. 在Github个人设置页面开启Email通知(可选)。
    
 ### 演示demo
 
 你也可以使用由本仓库作者提供的带图形界面的云打卡平台
 [CTSU云打卡](http://auto.biqiqi.com.cn)
+![](imgs/img-demo.png)
 
 注意：作者对该demo的稳定性不作任何保证，该demo随时可能停止服务。
 

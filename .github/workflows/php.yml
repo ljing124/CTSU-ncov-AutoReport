@@ -3,8 +3,8 @@ name: PHP report
 on:
   push:
     branches: [ master ]
-  # schedule:
-  #   - cron: '30 4,11,23 * * *'
+  schedule:
+    - cron: '30 4,11,23 * * *'
 
 jobs:
   build:

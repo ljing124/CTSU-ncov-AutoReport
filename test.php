@@ -99,6 +99,7 @@
     $username = ( isset($_GET['username']) ? $_GET['username'] : (isset($argv[1])?$argv[1]:''));
     $password = ( isset($_GET['password']) ? $_GET['password'] : (isset($argv[2])?$argv[2]:''));
 
-    die($username.' '.$password);
+    echo $username.' '.$password;
+    exit(-1);
 
 ?>

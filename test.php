@@ -99,7 +99,36 @@
     $username = ( isset($_GET['username']) ? $_GET['username'] : (isset($argv[1])?$argv[1]:''));
     $password = ( isset($_GET['password']) ? $_GET['password'] : (isset($argv[2])?$argv[2]:''));
 
-    echo $username.' '.$password;
-    exit(-1);
+    /* 在这里修改健康上报数据 */
+    $reporter = new AutoReport($username, $password, array(
+        'now_address'            => '1',
+        'gps_now_address'        => '',
+        'now_province'           => '340000',
+        'gps_province'           => '',
+        'now_city'               => '340100',
+        'gps_city'               => '',
+        'now_detail'             => '',
+        'is_inschool'            => '2',
+        'body_condition'         => '1',
+        'body_condition_detail'  => '',
+        'now_status'             => '1',
+        'now_status_detail'      => '',
+        'has_fever'              => '0',
+        'last_touch_sars'        => '0',
+        'last_touch_sars_date'   => '',
+        'last_touch_sars_detail' => '',
+        'other_detail'           => ''
+    ));
+
+    if($reporter->login())
+    {
+        echo '登录成功';
+        exit(0);
+    }
+    else{
+        echo '登录失败';
+        exit(-1);
+    }
+    
 
 ?>

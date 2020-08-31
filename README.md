@@ -18,8 +18,10 @@
 ```
 composer require fabpot/goutte
 ```
+2. 修改report.php文件中的健康上报数据为自己的数据。默认数据为东区正常在校。
+![](imgs/img-data.png)
 
-2. 通过计划任务工具定时访问report.php页面，linux环境下使用corntab，win环境下使用任务计划程序，也可以使用第三方云监控定时访问URI。
+3. 通过计划任务工具定时访问report.php页面，linux环境下使用corntab，win环境下使用任务计划程序，也可以使用第三方云监控定时访问URI。
 ```
 yourhost/report.php?username=USERNAME&password=PASSWORD
 ```

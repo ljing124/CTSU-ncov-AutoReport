@@ -18,5 +18,5 @@ jobs:
       env:
         USERNAME: ${{ secrets.USERNAME }}
         PASSWORD: ${{ secrets.PASSWORD }}
-      run: php -f test.php $USERNAME $PASSWORD
+      run: php -f report.php $USERNAME $PASSWORD
 

@@ -125,16 +125,18 @@
         $result = $reporter->report();
         if($result['status'])
         {
-            echo '1';
+            echo '打卡成功 | '.$result['time'].' | '.$result['name'].' | '.$result['note'];
         }
         else
         {
-            echo '0';
+            echo '打卡失败 | '.$result['time'].' | '.$result['name'].' | '.$result['note'];
+            exit(-1);
         }
     }
     else
     {
-        echo '-1';
+        echo '登录失败 | '.date('Y-m-d H:i:s').' | '.$username;
+        exit(-1);
     }
 
 ?>

@@ -14,7 +14,7 @@
 
 0. 搭建PHP运行环境，PHP版本＞7.3，无需MYSQL，也可以使用docker部署。(打卡脚本资源占用较少，可以在openwrt、群晖等轻量环境下运行)
 
-1. 将本仓库clone到本地并上传至你的PHP运行环境。也可以仅上传report.php文件，通过composer安装依赖。
+1. 将本仓库clone到本地并上传至您的PHP运行环境。也可以仅上传report.php文件，通过composer安装依赖。
 ```
 composer require fabpot/goutte
 ```
@@ -45,11 +45,16 @@ yourhost/report.php?username=USERNAME&password=PASSWORD
    
 ### 演示demo
 
-你也可以使用由本仓库作者提供的带图形界面的云打卡平台
+您也可以使用由本仓库作者提供的带图形界面的云打卡平台
 [CTSU云打卡](http://auto.biqiqi.com.cn)
+
+*目前尚未限制账号注册*
+
 ![](imgs/img-demo.png)
 
-注意：作者对该demo的稳定性不作任何保证，该demo随时可能停止服务。
+注意：
++ 作者对该云平台demo的稳定性不作任何保证，该demo随时可能停止服务。
++ 云平台需要存储您的统一身份认证账号和密码(非公开)，请确认知悉这一点再使用。
 
 ## 数据配置
 

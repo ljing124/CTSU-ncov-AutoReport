@@ -33,12 +33,13 @@ yourhost/report.php?username=USERNAME&password=PASSWORD
 2. 修改report.php文件中的健康上报数据为自己的数据。默认数据为东区正常在校。
 ![](imgs/img-data.png)
    
-3. 修改.github/workflows/php.yml文件中第7行的schedule为自己需要打卡的时间。如果您不知道如何设置时间，可以先了解cron表达式。
+3. 修改.github/workflows/php.yml文件中第7行的schedule为自己需要打卡的时间。如果您不知道如何设置时间，可以先了解 [POSIX cron](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07) 表达式。注意这里使用的是**UTC时间**，即北京时间减去8小时。
    
 4. 选择Settings选项卡点选左侧secret，创建名为USERNAME和PASSWORD的secret，值分别为自己统一身份认证的账号(学号)和密码。
 ![](imgs/img-secrets.png)
 
-5. 选择Actions选项卡启用自己仓库的Action。
+5. 选择Actions选项卡启用自己仓库的Action，当push到master分支或计划时间时将会自动运行report.php打卡，在Actions界面选择PHP report -> build可以查看打卡结果。
+![](imgs/img-actions.png)
    
 6. 在Github个人设置页面开启Email通知(可选)。
    

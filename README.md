@@ -53,7 +53,7 @@ yourhost/report.php?username=USERNAME&password=PASSWORD
 ![](imgs/img-demo.png)
 
 注意：
-+ 作者对该云平台demo的稳定性不作任何保证，该demo随时可能停止服务。
++ 作者对该云平台demo的稳定性不作任何保证，该demo随时可能停止服务。(若停止服务，已注册使用的用户将收到邮件通知)
 + 云平台需要存储您的统一身份认证账号和密码(非公开)，请确认知悉这一点再使用。
 
 ## 数据配置

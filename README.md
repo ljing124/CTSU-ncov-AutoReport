@@ -46,7 +46,12 @@ yourhost/report.php?username=USERNAME&password=PASSWORD
 ### 演示demo
 
 您也可以使用由本仓库作者提供的带图形界面的云打卡平台
-[CTSU云打卡](http://auto.biqiqi.com.cn)
+
+[阿里云教育网节点](http://auto.biqiqi.com.cn)
+
+[西区校内节点](http://lxk.b77.tech:10888)
+
+[东区校园网节点](http://mxh.b77.tech)
 
 *目前尚未限制账号注册*
 

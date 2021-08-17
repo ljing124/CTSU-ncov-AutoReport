@@ -58,6 +58,8 @@
             $form['gps_province']           = $this->reportdata['gps_province'];
             $form['now_city']               = $this->reportdata['now_city'];
             $form['gps_city']               = $this->reportdata['gps_city'];
+            $form['now_country']            = $this->reportdata['now_country'];
+            $form['gps_country']            = $this->reportdata['gps_country'];
             $form['now_detail']             = $this->reportdata['now_detail'];
             $form['is_inschool']            = $this->reportdata['is_inschool'];
             $form['body_condition']         = $this->reportdata['body_condition'];
@@ -105,10 +107,12 @@
     $reporter = new AutoReport($username, $password, array(
         'now_address'            => '1',
         'gps_now_address'        => '',
-        'now_province'           => '340000',
+        'now_province'           => '340000',    //省份行政区划代码
         'gps_province'           => '',
-        'now_city'               => '340100',
+        'now_city'               => '340100',    //城市行政区划代码
         'gps_city'               => '',
+        'now_country'            => '340111',    //县区行政区划代码
+        'gps_country'            => '',
         'now_detail'             => '',
         'is_inschool'            => '2',
         'body_condition'         => '1',

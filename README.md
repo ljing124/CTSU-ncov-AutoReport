@@ -43,22 +43,20 @@ yourhost/report.php?username=USERNAME&password=PASSWORD
    
 6. 在Github个人设置页面开启Email通知(可选)。
    
-### 演示demo
+### 云平台
 
 您也可以使用由本仓库作者提供的带图形界面的云打卡平台
 
-[阿里云教育网节点](http://auto.biqiqi.com.cn)
+[阿里云教育网节点](http://auto.biqiqi.com.cn) *阿里云教育网节点正常维护中*
 
-[西区校内节点](http://lxk.b77.tech:10888)
+~~[西区校内节点](http://lxk.b77.tech:10888)~~ *西区校园网节点已转交同学维护*
 
-[东区校园网节点](http://mxh.b77.tech)
-
-*目前尚未限制账号注册*
+~~[东区校园网节点](http://mxh.b77.tech)~~ *东区校园网节点已停止维护*
 
 ![](imgs/img-demo.png)
 
 注意：
-+ 作者对该云平台demo的稳定性不作任何保证，该demo随时可能停止服务。(若停止服务，已注册使用的用户将收到邮件通知)
++ 作者对该云平台稳定性不作任何保证，该demo随时可能停止服务。(若停止服务，已注册使用的用户将收到邮件通知)
 + 云平台需要存储您的统一身份认证账号和密码(非公开)，请确认知悉这一点再使用。
 
 ## 数据配置
@@ -80,6 +78,10 @@ yourhost/report.php?username=USERNAME&password=PASSWORD
    
 8. last_touch_sars: 接触确诊或疑似病例 ( 无:0, 有:1 )
 
+9. is_danger: 当前居住地是否为疫情中高风险地区 ( 无:0, 有:1 )
+
+10. is_goto_danger: 14天内是否有疫情中高风险地区旅居史 ( 无:0, 有:1 )
+
 
 
 ## 相关项目
@@ -88,6 +90,6 @@ yourhost/report.php?username=USERNAME&password=PASSWORD
    
 ## TODO LIST
 
-1. 自建PHP环境运行的邮件提醒
+1. GitHub Action 打卡失败时进行重试
 
-2. 打卡失败时进行重试
+2. 自适应数据项填充 

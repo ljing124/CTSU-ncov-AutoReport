@@ -68,6 +68,8 @@
             $form['last_touch_sars']        = $this->reportdata['last_touch_sars'];
             $form['last_touch_sars_date']   = $this->reportdata['last_touch_sars_date'];
             $form['last_touch_sars_detail'] = $this->reportdata['last_touch_sars_detail'];
+            $form['is_danger']              = $this->reportdata['is_danger'];
+            $form['is_goto_danger']         = $this->reportdata['is_goto_danger'];
             $form['other_detail']           = $this->reportdata['other_detail'];
             $this->crawler = $this->client->submit($form);
             $realname = $this->crawler->filter('#wrapper > div.header > ul.nav.navbar-nav.pull-right > li > span')->text();
@@ -117,6 +119,8 @@
         'last_touch_sars'        => '0',
         'last_touch_sars_date'   => '',
         'last_touch_sars_detail' => '',
+        'is_danger'              => '0',
+        'is_goto_danger'         => '0',
         'other_detail'           => ''
     ));
 

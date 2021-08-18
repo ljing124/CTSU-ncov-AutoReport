@@ -72,6 +72,9 @@
             $form['last_touch_sars_detail'] = $this->reportdata['last_touch_sars_detail'];
             $form['is_danger']              = $this->reportdata['is_danger'];
             $form['is_goto_danger']         = $this->reportdata['is_goto_danger'];
+            $form['jinji_lxr']              = $this->reportdata['jinji_lxr'];
+            $form['jinji_guanxi']           = $this->reportdata['jinji_guanxi'];
+            $form['jiji_mobile']            = $this->reportdata['jinji_mobile'];
             $form['other_detail']           = $this->reportdata['other_detail'];
             $this->crawler = $this->client->submit($form);
             $realname = $this->crawler->filter('#wrapper > div.header > ul.nav.navbar-nav.pull-right > li > span')->text();
@@ -100,8 +103,11 @@
         }
     }
 
-    $username = ( isset($_GET['username']) ? $_GET['username'] : (isset($argv[1])?$argv[1]:''));
-    $password = ( isset($_GET['password']) ? $_GET['password'] : (isset($argv[2])?$argv[2]:''));
+    $username = ( $_GET['username'] ?? ($argv[1]??''));
+    $password = ( $_GET['password'] ?? ($argv[2]??''));
+    $contact_name = ( $_GET['contactname'] ?? ($argv[3]??''));
+    $contact_rela = ( $_GET['contactrela'] ?? ($argv[4]??''));
+    $contact_phone = ( $_GET['contactphone'] ?? ($argv[5]??''));
 
     /* 在这里修改健康上报数据 */
     $reporter = new AutoReport($username, $password, array(
@@ -125,6 +131,9 @@
         'last_touch_sars_detail' => '',
         'is_danger'              => '0',
         'is_goto_danger'         => '0',
+        'jinji_lxr'              => $contact_name,
+        'jinji_guanxi'           => $contact_rela,
+        'jinji_mobile'           => $contact_phone,
         'other_detail'           => ''
     ));
 

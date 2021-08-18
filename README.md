@@ -10,11 +10,13 @@
 
 ## 更新
 
-2021-08-17 学校打卡平台更新了部分健康上报的数据格式，增加了位置县区代码、14天是否旅居中高风险地区等选择项，增加了先研院与国金院2个校区。
+2021-08-18 同步学校打卡平台更新，增加了紧急联系人相关填写项。
 
-2021-07-30 云打卡增加了打卡失败的邮件提醒
+2021-08-17 同步学校打卡平台更新增加了位置县区代码、14天是否旅居中高风险地区等数据项，增加了先研院与国金院2个校区。
 
-2021-03-20 东区校园网节点下线
+2021-07-30 云打卡增加了打卡失败的邮件提醒。
+
+2021-03-20 东区校园网节点下线。
 
 此前fork的项目可能需要fetch upstream同步主分支到最新版本以正常运行。
 
@@ -45,7 +47,7 @@ yourhost/report.php?username=USERNAME&password=PASSWORD
    
 3. 修改.github/workflows/php.yml文件中第7行的schedule为自己需要打卡的时间。如果您不知道如何设置时间，可以先了解 [POSIX cron](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07) 表达式。注意这里使用的是**UTC时间**，即北京时间减去8小时。
    
-4. 选择Settings选项卡点选左侧secret，创建名为USERNAME和PASSWORD的secret，值分别为自己统一身份认证的账号(学号)和密码。
+4. 选择Settings选项卡点选左侧secret，创建名为USERNAME和PASSWORD的secret，值分别为自己统一身份认证的账号(学号)和密码。再创建名为CONTACTNAME、CONTACTRELA、CONTACTPHONE的secret，值为紧急联系人的姓名、与本人关系、联系电话。
 ![](imgs/img-secrets.png)
 
 5. 选择Actions选项卡启用自己仓库的Action，当push到master分支或计划时间时将会自动运行report.php打卡，在Actions界面选择PHP report -> build可以查看打卡结果。
@@ -101,5 +103,3 @@ yourhost/report.php?username=USERNAME&password=PASSWORD
 ## TODO LIST
 
 1. GitHub Action 打卡失败时进行重试
-
-2. 自适应数据项填充 

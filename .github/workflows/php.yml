@@ -18,5 +18,9 @@ jobs:
       env:
         USERNAME: ${{ secrets.USERNAME }}
         PASSWORD: ${{ secrets.PASSWORD }}
-      run: php -f report.php $USERNAME $PASSWORD
+        CONTACTNAME: ${{ secrets.CONTACTNAME }}
+        CONTACTRELA: ${{ secrets.CONTACTRELA }}
+        CONTACTPHONE: ${{ secrets.CONTACTPHONE }}
+        
+      run: php -f report.php $USERNAME $PASSWORD $CONTACTNAME $CONTACTRELA $CONTACTPHONE
 

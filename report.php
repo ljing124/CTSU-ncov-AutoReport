@@ -3,7 +3,7 @@
  * CTSU健康打卡平台自动打卡
  * 
  * @author LJING
- * @version 2.0
+ * @version 2.2
  */
     require_once __DIR__ . '/vendor' . '/autoload.php';
     use Goutte\Client;
@@ -103,6 +103,7 @@
         }
     }
 
+    /* 通过GET传参或命令传参获取secrects值，使用自建环境时可选择直接在此处修改 */
     $username = ( $_GET['username'] ?? ($argv[1]??''));
     $password = ( $_GET['password'] ?? ($argv[2]??''));
     $contact_name = ( $_GET['contactname'] ?? ($argv[3]??''));
@@ -113,27 +114,27 @@
     $reporter = new AutoReport($username, $password, array(
         'now_address'            => '1',
         'gps_now_address'        => '',
-        'now_province'           => '340000',    //省份行政区划代码
+        'now_province'           => '340000',         //省份行政区划代码
         'gps_province'           => '',
-        'now_city'               => '340100',    //城市行政区划代码
+        'now_city'               => '340100',         //城市行政区划代码
         'gps_city'               => '',
-        'now_country'            => '340111',    //县区行政区划代码
+        'now_country'            => '340111',         //县区行政区划代码
         'gps_country'            => '',
         'now_detail'             => '',
-        'is_inschool'            => '2',
-        'body_condition'         => '1',
+        'is_inschool'            => '2',              //是否在校 东区:2 南区:3 中区:4 北区:5 西区:6 先研院:7 国金院:8 校外:0
+        'body_condition'         => '1',              //身体状况 正常:1 疑似:2 确诊:3 其他:4
         'body_condition_detail'  => '',
-        'now_status'             => '1',
+        'now_status'             => '1',              //当前状态 正常在校:1 正常在家:2 居家留观:3 集中留观:4 住院治疗:5 其他:6
         'now_status_detail'      => '',
-        'has_fever'              => '0',
+        'has_fever'              => '0',              //发热症状 无:0 有:1 
         'last_touch_sars'        => '0',
-        'last_touch_sars_date'   => '',
+        'last_touch_sars_date'   => '',               //是否接触确诊或疑似病例 否:0 是:1
         'last_touch_sars_detail' => '',
-        'is_danger'              => '0',
-        'is_goto_danger'         => '0',
-        'jinji_lxr'              => $contact_name,
-        'jinji_guanxi'           => $contact_rela,
-        'jinji_mobile'           => $contact_phone,
+        'is_danger'              => '0',              //当前居住地是否为疫情中高风险地区 否:0 是:1
+        'is_goto_danger'         => '0',              //14天内是否有疫情中高风险地区旅居史 否:0 是:1
+        'jinji_lxr'              => $contact_name,    //自建环境可在此处修改紧急联系人姓名，使用Github Action时请使用secrects传入
+        'jinji_guanxi'           => $contact_rela,    //自建环境可在此处修改紧急联系人关系，使用Github Action时请使用secrects传入
+        'jinji_mobile'           => $contact_phone,   //自建环境可在此处修改紧急联系人电话，使用Github Action时请使用secrects传入
         'other_detail'           => ''
     ));
 

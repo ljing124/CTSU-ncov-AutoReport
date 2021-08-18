@@ -128,7 +128,7 @@
         'now_status_detail'      => '',
         'has_fever'              => '0',              //发热症状 无:0 有:1 
         'last_touch_sars'        => '0',
-        'last_touch_sars_date'   => '',               //是否接触确诊或疑似病例 否:0 是:1
+        'last_touch_sars_date'   => '',               //是否接触确诊或疑似病例 无:0 有:1
         'last_touch_sars_detail' => '',
         'is_danger'              => '0',              //当前居住地是否为疫情中高风险地区 否:0 是:1
         'is_goto_danger'         => '0',              //14天内是否有疫情中高风险地区旅居史 否:0 是:1

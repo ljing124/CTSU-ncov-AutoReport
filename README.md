@@ -8,9 +8,13 @@
 
 本打卡脚本基于PHP开发，仅供学习交流使用，作者对于使用本脚本导致的问题不承担相应责任。
 
-如果当前版本代码与学校健康打卡平台数据项不匹配，可以尝试切换agile分支，agile分支使用学校平台记录的数据进行一键上报。
+~~如果当前版本代码与学校健康打卡平台数据项不匹配，可以尝试切换agile分支，agile分支使用学校平台记录的数据进行一键上报。~~
+
+已知问题：学校统一身份认证平台于2021-08-20对非常用地登陆增加了验证码，使用Github Action时可能遇到登陆失败
 
 ## 更新
+
+2021-08-21 agile分支暂停开发，
 
 2021-08-19 增加分支，使用学校健康打卡平台记录的数据上报。
 
@@ -63,9 +67,11 @@ yourhost/report.php?username=USERNAME&password=PASSWORD
 
 您也可以使用由本仓库作者提供的带图形界面的云打卡平台
 
-[阿里云教育网节点](http://auto.biqiqi.com.cn) *▶正常维护中*
+[阿里云教育网节点](https://auto.biqiqi.com.cn) *▶正常维护中*
 
-~~[西区校园网节点](http://lxk.b77.tech:10888)~~ *■已转交同学维护*
+[备用节点](https://auto.yuany3721.top) *▶由[yuany3721](https://github.com/yuany3721)维护中*
+
+~~[西区校园网节点](http://lxk.b77.tech:10888)~~ *■已停止维护*
 
 ~~[东区校园网节点](http://mxh.b77.tech)~~ *■已停止维护*
 
@@ -106,4 +112,4 @@ yourhost/report.php?username=USERNAME&password=PASSWORD
    
 ## TODO LIST
 
-1. GitHub Action 打卡失败时进行重试
+1. 登录验证码识别

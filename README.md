@@ -1,30 +1,26 @@
 # CTSU健康打卡平台自动打卡脚本
 
-![School](https://img.shields.io/badge/School-CTSU-blue)
+![School](https://img.shields.io/badge/School-USTC-blue)
 ![Language](https://img.shields.io/badge/php-%3E%3D7.3.0-blue)
 ![Github Action](https://github.com/ljing124/CTSU-ncov-AutoReport/workflows/PHP%20report/badge.svg)
 
 ## 介绍
 
-本打卡脚本基于PHP开发，仅供学习交流使用，作者对于使用本脚本导致的问题不承担相应责任。
+本打卡脚本基于PHP开发，仅供学习交流使用，作者对于使用本脚本或脚本失效导致的任何问题不承担相应责任。
 
 ~~如果当前版本代码与学校健康打卡平台数据项不匹配，可以尝试切换agile分支，agile分支使用学校平台记录的数据进行一键上报。~~
 
-已知问题：学校统一身份认证平台于2021-08-19对非常用地登陆增加了验证码，使用Github Action时可能遇到登陆失败。
+已知问题：学校统一身份认证平台增加了常用IP记录和弱密码登录限制：[通知](https://passport.ustc.edu.cn/doc/)，使用Github Action时可能遇到登陆失败的问题。
 
 ## 更新
 
+2021-08-24 同步学校更新，增加了对登录验证码的支持。
+
 2021-08-21 云打卡增加了备用节点。
 
-2021-08-20 agile分支暂停开发，主分支将继续跟进学校平台更新。
+2021-08-18 同步学校更新，增加了紧急联系人相关数据项。
 
-2021-08-19 增加agile分支，使用学校健康打卡平台记录的数据上报。
-
-2021-08-18 同步学校平台更新，增加了紧急联系人相关数据项。
-
-2021-08-17 同步学校打平台更新，增加了位置县区代码、旅居史等数据项，增加了先研院与国金院校区。
-
-2021-07-30 云打卡增加了打卡失败的邮件提醒。
+2021-08-17 同步学校更新，增加县区代码、旅居史等数据项，增加先研院与国金院校区。
 
 2021-03-20 东区校园网节点下线。
 
@@ -114,4 +110,4 @@ yourhost/report.php?username=USERNAME&password=PASSWORD
    
 ## TODO LIST
 
-1. 登录验证码识别
+1. 验证码识别失败时进行重试

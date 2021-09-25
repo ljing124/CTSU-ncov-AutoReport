@@ -61,7 +61,7 @@
          * @access public
          */
         public function report(){
-            $form = $this->crawler->filter('#report-submit-btn')->form();
+            $form = $this->crawler->filter('#report-submit-btn-a24')->form();
             $form->disableValidation();
             $form['now_address']            = $this->reportdata['now_address'];
             $form['gps_now_address']        = $this->reportdata['gps_now_address'];

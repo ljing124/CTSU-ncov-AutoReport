@@ -3,12 +3,14 @@
  * CTSU健康打卡平台自动打卡
  * 
  * @author LJING
- * @version 2.2
+ * @version 3.1
  */
     require_once __DIR__ . '/vendor' . '/autoload.php';
     use Goutte\Client;
     
     ignore_user_abort();
+
+    include_once './captcha/ustcv2.php';
 
     class AutoReport
     {
@@ -29,10 +31,19 @@
          * @access public
          */
         public function login(){
-            $this->crawler = $this->client->request('GET', 'https://passport.ustc.edu.cn/login?service=https%3A%2F%2Fweixine.ustc.edu.cn%2F2020%2Fcaslogin',);
+            $this->crawler = $this->client->request('GET', 'https://passport.ustc.edu.cn/login?service=https%3A%2F%2Fweixine.ustc.edu.cn%2F2020%2Fcaslogin');
             $form = $this->crawler->filter('#login')->form();
+            $form->disableValidation();
             $form['username'] = $this->username;
             $form['password'] = $this->password;
+            if($form->getValues()['showCode']==1){
+                $this->client->request('GET', 'https://passport.ustc.edu.cn/validatecode.jsp?type=login');
+                $captcha = new ustccaptcha($this->client->getResponse()->getContent());
+                $ltnode = $form->getFormNode()->childNodes->item(1)->cloneNode(True);
+                $ltnode->setAttribute('name', 'LT');
+                $form->addField($ltnode);
+                $form['LT'] = $captcha->recognize();
+            }
             $this->crawler = $this->client->submit($form);
             if($this->crawler->filter('#wrapper > div.header > ul.nav.navbar-nav.pull-right > li > span')->count()>0)
             {
@@ -49,7 +60,9 @@
          * @access public
          */
         public function report(){
-            $form = $this->crawler->filter('#report-submit-btn')->form();
+            $form = $this->crawler->filter('#report-submit-btn-a24');
+            if($form) $form = $form->form();
+            else return array('status'=>false, 'name'=>$this->username, 'time'=>date('Y-m-d H:i:s'), 'note'=>'表单定位失败');
             $form->disableValidation();
             $this->crawler = $this->client->submit($form);
             $realname = $this->crawler->filter('#wrapper > div.header > ul.nav.navbar-nav.pull-right > li > span')->text();
